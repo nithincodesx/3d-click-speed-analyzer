@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Mouse Click Speed Analyzer</title>
+    <meta
+      name="description"
+      content="Measure click speed, cursor velocity, and reaction rhythm in a 3D mouse testing arena."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-mark">3D</div>
+          <div>
+            <p class="eyebrow">Precision Lab</p>
+            <h1>Mouse Click Speed Analyzer</h1>
+          </div>
+        </div>
+        <div class="control-group">
+          <button id="startBtn" class="primary-btn">Start Session</button>
+          <button id="resetBtn" class="secondary-btn">Reset</button>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="hero-panel glass-panel">
+          <div class="hero-copy">
+            <p class="tag">3D reaction and precision tracker</p>
+            <h2>Measure your click rhythm in motion.</h2>
+            <p>
+              Track click intervals, cursor travel, and burst consistency while you
+              move through a live 3D testing arena.
+            </p>
+
+            <div class="insight-row" aria-label="Performance insights">
+              <div class="insight-pill">
+                <span class="dot cyan"></span>
+                Response
+              </div>
+              <div class="insight-pill">
+                <span class="dot violet"></span>
+                Motion Sense
+              </div>
+              <div class="insight-pill">
+                <span class="dot green"></span>
+                Session Score
+              </div>
+            </div>
+          </div>
+
+          <div class="metrics-grid">
+            <article class="metric-card">
+              <span class="metric-label">Current interval</span>
+              <strong id="intervalMetric">0.00s</strong>
+              <small>last click gap</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Speed</span>
+              <strong id="speedMetric">0.0</strong>
+              <small>px/s</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Average speed</span>
+              <strong id="avgSpeedMetric">0.0</strong>
+              <small>px/s</small>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Burst index</span>
+              <strong id="burstMetric">0.0</strong>
+              <small>velocity score</small>
+            </article>
+          </div>
+        </section>
+
+        <section class="analysis-panel">
+          <div class="arena-panel glass-panel">
+            <div class="panel-header">
+              <h3>3D reaction arena</h3>
+              <span id="sessionState">Idle</span>
+            </div>
+
+            <div id="arena" class="arena" aria-label="3D cursor arena">
+              <div class="arena-halo"></div>
+              <div class="arena-grid"></div>
+              <div class="target-shell">
+                <button id="clickTarget" class="click-target" type="button">
+                  <span>CLICK</span>
+                </button>
+              </div>
+              <div id="pointerOrb" class="pointer-orb" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <aside class="sidebar-panel glass-panel">
+            <div class="panel-header compact">
+              <h3>Recent clicks</h3>
+            </div>
+            <ul id="clickLog" class="click-log"></ul>
+            <div class="chart-wrap">
+              <canvas id="historyChart" width="420" height="180"></canvas>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
